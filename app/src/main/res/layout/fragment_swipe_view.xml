@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="0dp"
+                android:paddingBottom="0dp"
+                tools:context="uk.thinkling.rnd.app.SwipeView.ListFragment" android:gravity="center_vertical|fill_vertical"
+                android:transitionGroup="false">
+
+
+    <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/listView" android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="false" android:layout_alignParentBottom="false"
+            android:layout_alignParentEnd="false" android:layout_centerVertical="true" android:stackFromBottom="false"/>
+
+
+</RelativeLayout>

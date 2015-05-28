@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Iacta</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_all">SHOW ALL</string>
+    <string name="action_remove_one">REDUCE</string>
+    <string name="action_only_one">CHOOSE</string>
+    <string name="title_activity_swipe_view">Iacta</string>
+    <string name="action_edit">Edit Current</string>
+    <string name="action_delete">Delete Current</string>
+    <string name="action_new">Create New List</string>
+    <string name="action_save">Save</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_reset">Reset lists to default</string>
+    <string name="title_activity_edit_list">Iacta EDIT</string>
+    <string name="EXTRA_LIST_ID">list_id</string>
+    <string name="EXTRA_LIST_TITLE">list_title</string>
+    <string name="EXTRA_LIST_ITEMS">list_items</string>
+
+</resources>

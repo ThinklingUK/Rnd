@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context=".MainActivity">
+      <item android:id="@+id/action_settings"
+            android:title="@string/action_settings"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+      <item android:id="@+id/action_reset"
+            android:title="@string/action_reset"
+            android:orderInCategory="2"
+            app:showAsAction="always"/>
+      <item android:id="@+id/action_remove_one"
+            android:title="@string/action_remove_one"
+            android:orderInCategory="1"
+            app:showAsAction="always"/>
+      <item android:id="@+id/action_next"
+            android:title="Next"
+            android:orderInCategory="3"
+            app:showAsAction="always"/>
+
+</menu>

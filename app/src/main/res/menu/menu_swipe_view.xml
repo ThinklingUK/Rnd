@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="uk.thinkling.rnd.app.SwipeView">
+      <item android:id="@+id/action_edit"
+            android:title="@string/action_edit"
+            android:orderInCategory="100"
+            app:showAsAction="never"/>
+
+      <item android:id="@+id/action_new"
+            android:title="@string/action_new"
+            android:orderInCategory="101"
+            app:showAsAction="never"/>
+
+      <item android:id="@+id/action_delete"
+            android:title="@string/action_delete"
+            android:orderInCategory="102"
+            app:showAsAction="never"/>
+
+      <item android:id="@+id/action_reset"
+            android:title="@string/action_reset"
+            android:orderInCategory="103"
+            app:showAsAction="never"/>
+
+      <item android:id="@+id/action_remove_one"
+            android:title="@string/action_remove_one"
+            android:orderInCategory="2"
+            app:showAsAction="always"/>
+
+      <item android:id="@+id/action_only_one"
+            android:title="@string/action_only_one"
+            android:orderInCategory="3"
+            app:showAsAction="always"/>
+
+        <item android:id="@+id/action_all"
+            android:title="@string/action_all"
+            android:orderInCategory="1"
+            app:showAsAction="always"/>
+</menu>
