@@ -27,7 +27,7 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
 
     private static final int EDIT_REQUEST_CODE = 100;
 
-    public static ArrayList<ArrayList<String>> itemArrayListArray = new ArrayList<ArrayList<String>>();
+    public static ArrayList<ArrayList<String>> itemArrayListArray = new ArrayList<>();
     public static ArrayList<String> titleArrayList;
 
     private ShakeEventManager shakeMan;
@@ -64,10 +64,10 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
                 Log.d("LOADING TITLES", storedTitles);
                 String[] al = storedLists.split(":");
                 itemArrayListArray = new ArrayList();
-                for (int i = 0; i < al.length; i++) {
-                    Log.d("LOADING LIST", " adding " + al[i].toString());
-                    if (al[i].length()>2)  // smallest valid entry would be "a,b"
-                    itemArrayListArray.add(new ArrayList(Arrays.asList(al[i].split(","))));
+                for (String anAl : al) {
+                    Log.d("LOADING LIST", " adding " + anAl);
+                    if (anAl.length() > 2)  // smallest valid entry would be "a,b"
+                        itemArrayListArray.add(new ArrayList(Arrays.asList(anAl.split(","))));
                 }
                 // TODO check the lists match in size, try catch and set defaults etc?
                 if (titleArrayList.isEmpty() || (titleArrayList.size() != itemArrayListArray.size())) throw new Exception("Titles and Lists out of sync, restoring defaults");
@@ -78,7 +78,7 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
             }
         } catch (Exception e){
             Log.d("LOADING LIST",  e.getMessage());
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT);
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
             LoadDefaultLists();
         }
 
@@ -105,7 +105,7 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
         String listString="";
         //Save lists to file
         // TODO check the delimiters not used in text.
-        //TODO move delimeters to strings file
+        // TODO move delimiters to strings file
 
         for (ArrayList<String> a : itemArrayListArray)
         {
@@ -153,13 +153,13 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
     }
 
     public void LoadDefaultLists() {
-        titleArrayList = new ArrayList<String>(Arrays.asList("The Magic 8-ball says", "The roll of the die is", "The Coin shows","The answer is", "A smart Investor would"));
-        itemArrayListArray = new ArrayList<ArrayList<String>>();
-        itemArrayListArray.add(new ArrayList<String>( Arrays.asList("I cannot say", "Definitely", "It is unlikely", "Ask again later", "Highly probable", "Against the odds", "I have doubts", "Perhaps tomorrow")));
-        itemArrayListArray.add(new ArrayList<String>( Arrays.asList("ONE","TWO","THREE","FOUR","FIVE","SIX")));
-        itemArrayListArray.add(new ArrayList<String>( Arrays.asList("HEADS", "TAILS")));
-        itemArrayListArray.add(new ArrayList<String>( Arrays.asList("YES","NO","MAYBE")));
-        itemArrayListArray.add(new ArrayList<String>( Arrays.asList("BUY","HOLD","SELL")));
+        titleArrayList = new ArrayList<>(Arrays.asList("The Magic 8-ball says", "The roll of the die is", "The Coin shows","The answer is", "A smart Investor would"));
+        itemArrayListArray = new ArrayList<>();
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("I cannot say", "Definitely", "It is unlikely", "Ask again later", "Highly probable", "Against the odds", "I have doubts", "Perhaps tomorrow")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("ONE","TWO","THREE","FOUR","FIVE","SIX")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("HEADS", "TAILS")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("YES","NO","MAYBE")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("BUY","HOLD","SELL")));
     }
     public void doEditActivity(int listID, String listTitle, ArrayList<String> listStrings) {
         Intent intent = new Intent(this, EditListActivity.class);
@@ -191,7 +191,7 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
             case R.id.action_new: //NB: once we have ID, we could use Main data elements rather than fragment data
                 titleArrayList.add("");
                 itemArrayListArray.add(new ArrayList<String>());
-                doEditActivity(titleArrayList.size(), "New List Title", new ArrayList<String>( Arrays.asList("Option1","Option2","Option3")));
+                doEditActivity(titleArrayList.size(), "New List Title", new ArrayList<>( Arrays.asList("Option1","Option2","Option3")));
             return true;
 
             case R.id.action_edit: //NB: once we have ID, we could use Main data elements rather than fragment data
@@ -337,8 +337,8 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
 
         public void resetList() {
             listArrayAdapter.clear();
-            for(int i = 0; i < listItemsArrayList.size(); i++) {
-                listArrayAdapter.add(listItemsArrayList.get(i));
+            for (String aListItemsArrayList : listItemsArrayList) {
+                listArrayAdapter.add(aListItemsArrayList);
             }
         }
 
@@ -354,7 +354,7 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
 
             mListView = (ListView)rootView.findViewById(R.id.listView);
 
-            listArrayAdapter = new ArrayAdapter<String>(rootView.getContext(), R.layout.centred_list_layout, new ArrayList<String>(listItemsArrayList));
+            listArrayAdapter = new ArrayAdapter<>(rootView.getContext(), R.layout.centred_list_layout, new ArrayList<>(listItemsArrayList));
             mListView.setAdapter(listArrayAdapter);
             return rootView;
         }
