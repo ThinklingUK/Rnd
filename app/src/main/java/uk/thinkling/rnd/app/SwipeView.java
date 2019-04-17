@@ -7,7 +7,7 @@ import java.util.Locale;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -23,7 +23,7 @@ import android.view.ViewGroup;
 import android.widget.*;
 
 
-public class SwipeView extends ActionBarActivity implements ShakeEventManager.OnShakeListener {
+public class SwipeView extends AppCompatActivity implements ShakeEventManager.OnShakeListener {
 
     private static final int EDIT_REQUEST_CODE = 100;
 
@@ -153,13 +153,14 @@ public class SwipeView extends ActionBarActivity implements ShakeEventManager.On
     }
 
     public void LoadDefaultLists() {
-        titleArrayList = new ArrayList<>(Arrays.asList("The Magic 8-ball says", "The roll of the die is", "The Coin shows","The answer is", "A smart Investor would"));
+        titleArrayList = new ArrayList<>(Arrays.asList("The Magic 8-ball says", "The roll of the die is", "The Coin shows","The answer is", "A smart Investor would","I'm drinking"));
         itemArrayListArray = new ArrayList<>();
-        itemArrayListArray.add(new ArrayList<>( Arrays.asList("I cannot say", "Definitely", "It is unlikely", "Ask again later", "Highly probable", "Against the odds", "I have doubts", "Perhaps tomorrow")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("It is certain.","It is decidedly so.","Without a doubt.","Yes - definitely.","You may rely on it","As I see it - yes.","Most likely.","Outlook good.","Yes.","Signs point to yes.","Reply hazy - try again.","Ask again later.","Better not tell you now.","Cannot predict now.","Concentrate and ask again.","Don't count on it.","My reply is no.","My sources say no.","Outlook not so good.","Very doubtful.")));
         itemArrayListArray.add(new ArrayList<>( Arrays.asList("ONE","TWO","THREE","FOUR","FIVE","SIX")));
         itemArrayListArray.add(new ArrayList<>( Arrays.asList("HEADS", "TAILS")));
         itemArrayListArray.add(new ArrayList<>( Arrays.asList("YES","NO","MAYBE")));
         itemArrayListArray.add(new ArrayList<>( Arrays.asList("BUY","HOLD","SELL")));
+        itemArrayListArray.add(new ArrayList<>( Arrays.asList("tea","wine","coffee","lager","ale","vodka","gin","bubbles")));
     }
     public void doEditActivity(int listID, String listTitle, ArrayList<String> listStrings) {
         Intent intent = new Intent(this, EditListActivity.class);

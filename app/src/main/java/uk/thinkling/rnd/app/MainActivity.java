@@ -1,6 +1,6 @@
 package uk.thinkling.rnd.app;
 
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,8 +10,11 @@ import android.widget.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static uk.thinkling.rnd.app.R.id;
+import static uk.thinkling.rnd.app.R.layout;
 
-public class MainActivity extends ActionBarActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> stringArrayList;
     ArrayAdapter<String> listArrayAdapter;
@@ -22,11 +25,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
         stringArray = new String[][] {{"I cannot say", "Definitely", "It is unlikely", "Ask again later", "Highly probable", "Against the odds", "I have doubts", "Perhaps tomorrow"},
                 {"ONE","TWO","THREE","FOUR","FIVE","SIX"},{"YES","NO","MAYBE"},{"tea","wine","coffee","lager","ale","vodka","gin","bubbles"}};
-        listArrayAdapter = new ArrayAdapter(this, R.layout.centred_list_layout, new ArrayList<String>(Arrays.asList(stringArray[arrayNum])));
-        myListView = (ListView) findViewById(R.id.listView1);
+        listArrayAdapter = new ArrayAdapter(this, layout.centred_list_layout, new ArrayList<String>(Arrays.asList(stringArray[arrayNum])));
+        myListView = (ListView) findViewById(id.listView1);
         myListView.setAdapter(listArrayAdapter);
         // React to user clicks on item
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -55,23 +58,23 @@ public class MainActivity extends ActionBarActivity {
         switch ( item.getItemId()) {
 
             //noinspection SimplifiableIfStatement
-            case R.id.action_settings: //
+            case id.action_settings: //
                 return true;
 
 
-            case R.id.action_next: //change to swipe left/right
+            case id.action_next: //change to swipe left/right
                 arrayNum++;
                 if (arrayNum>=stringArray.length) arrayNum=0;
                 //fallthrough to reset
 
-            case R.id.action_reset:
+            case id.action_reset:
                 listArrayAdapter.clear();
                 for(int i = 0; i < stringArray[arrayNum].length; i++) {
                     listArrayAdapter.add(stringArray[arrayNum][i]);
                 }
                 return true;
 
-            case R.id.action_remove_one: //should just be a click on the screen
+            case id.action_remove_one: //should just be a click on the screen
                 if (listArrayAdapter.getCount() > 1) {
                     listArrayAdapter.remove(listArrayAdapter.getItem((int) (Math.random() * listArrayAdapter.getCount()))); // remove one element at random
                     listArrayAdapter.notifyDataSetChanged();
